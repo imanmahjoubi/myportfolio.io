@@ -1,0 +1,43 @@
+{
+    "title": "Web developer",
+    "name": "imen-mahjoubi",
+    "version": "4.1.1",
+    "description": "this is my portfolio",
+    "keywords": [
+        "css",
+        "sass",
+        "html",
+        "responsive",
+        "theme",
+        "template"
+    ],
+    "homepage": "https://www.imenmahjoubi.com",
+    "bugs": {
+        "url": "https://www.imenmahjoubi.com",
+        "email": "mahjoubiimn@gmail.com"
+    },
+    "license": "UCLA extention",
+    "author": "Imen Mahjoubi",
+    "contributors": [
+        "Imen Mahjoubi"
+    ],
+    "repository": {
+        "type": "git",
+        "url": ""
+    },
+    "dependencies": {
+        "bootstrap": "4.1.1",
+        "font-awesome": "4.7.0",
+        "jquery": "3.3.1",
+        "jquery.easing": "^1.4.1"
+    },
+    "devDependencies": {
+        "browser-sync": "2.24.3",
+        "gulp": "^3.9.1",
+        "gulp-clean-css": "3.9.4",
+        "gulp-header": "2.0.5",
+        "gulp-rename": "^1.2.2",
+        "gulp-sass": "4.0.1",
+        "gulp-uglify": "3.0.0"
+    }
+}
