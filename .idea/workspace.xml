@@ -2,23 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a05f06ee-62b6-4949-969e-3d8949ac5112" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/portfolio/nao.mp4" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/portfolio/nao.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/portfolio/nao1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/portfolio/nao2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/portfolio/trivia.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/portfolio/trivia2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/portfolio/zgarden.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/portfolio/zgarden2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/portfolio/zombie.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/portfolio/zombie1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/portfolio/zombie2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/portfolio/zombie3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/portfolio/zombie4.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/agency.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/agency.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -263,12 +247,12 @@
       <workItem from="1530816823309" duration="4908000" />
       <workItem from="1531190593639" duration="15022000" />
       <workItem from="1531757108291" duration="450000" />
-      <workItem from="1532021531308" duration="248000" />
+      <workItem from="1532021531308" duration="710000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25144000" />
+    <option name="totallyTimeSpent" value="25606000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="6" />
@@ -281,7 +265,7 @@
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3287858" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.010025063" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32456142" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
