@@ -21,11 +21,52 @@
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
 
     <!-- Custom styles for this template -->
-    <link href="css/agency.min.css" rel="stylesheet">
+    <link href="css/style.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
   </head>
 
   <body id="page-top">
+  <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
+  <script>
+      // Initialize Firebase
+      var config = {
+          apiKey: "AIzaSyBC6bgaeMJ_vVMkcAjhZU55nXapFuGSpVg",
+          authDomain: "portfolio-imen.firebaseapp.com",
+          databaseURL: "https://portfolio-imen.firebaseio.com",
+          projectId: "portfolio-imen",
+          storageBucket: "",
+          messagingSenderId: "463003366448"
+      };
+      firebase.initializeApp(config);
+
+      var database = firebase.database();
+
+      $(document).ready(function(){
+          $("#sendMessageButton").on("click", function(event) {
+              // Prevent the page from refreshing
+              event.preventDefault();
+
+              // Change what is saved in firebase
+              database.ref().push({
+                  name: $("#name").val().trim(),
+                  email: $("#email").val().trim(),
+                  phone: $("#phone").val().trim(),
+                  message: $("#message").val().trim()
+              });
+
+              $('#name').val('');
+              $('#email').val('');
+              $('#phone').val('');
+              $('#message').val('');
+
+              alert('Your Message is successfully sent!');
+
+
+          });
+      });
+
+  </script>
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
@@ -63,6 +104,7 @@
           <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Tell Me More</a>
         </div>
       </div>
+      <p class="scroll">Scroll To Explore <i class="fa fa-arrow-down"></i></p>
     </header>
 
     <!-- Services -->
@@ -82,16 +124,16 @@
             </span>
             <h4 class="service-heading">Web development</h4>
             <p class="text-muted">Coding is my principal role, I love converting a PSD or inDesign file to a beautiful responsive website. I tend to code things from scratch and I enjoy bringing new ideas to life
-            <h6 style="color:#55b0dc;">Languages I speak </h6>
-              <ul style="list-style-type: none; text-align: center; margin-right: 7%">
+            <h6 style="color:#55b0dc;">Languages spoken </h6>
+              <ul class="list-inline">
                   <li>HTML</li>
                   <li>CSS</li>
                   <li>JavaScript</li>
                   <li>Java</li>
                   <li><b>C </b>Family</li>
-              </ul><br>
-              <h6 style="color:#55b0dc;">Platforms </h6>
-              <ul style="list-style-type: none; text-align: center; margin-right: 10%">
+              </ul>
+              <h6 style="color:#55b0dc;">Frameworks </h6>
+              <ul class="list-inline align-content-center">
                   <li>Bootstrap</li>
                   <li>AngularJS</li>
                   <li>Materialize</li>
@@ -109,7 +151,7 @@
               <h6 style="color:#55b0dc;">Things I enjoy Designing  </h6>
               <ul style="list-style-type: none; text-align: center; margin-right: 10%">
                   <li>Logos, Fliers, Web, Mobile</li>
-              </ul><br>
+              </ul>
               <h6 style="color:#55b0dc;">Tools I use for design  </h6>
               <ul style="list-style-type: none; text-align: center; margin-right: 10%">
                   <li>Balsamiq Mockups</li>
@@ -149,6 +191,20 @@
         </div>
         <div class="row">
           <div class="col-md-4 col-sm-6 portfolio-item">
+            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal6">
+              <div class="portfolio-hover">
+                <div class="portfolio-hover-content">
+                  <i class="fa fa-plus fa-3x"></i>
+                </div>
+              </div>
+              <img class="img-fluid" src="img/portfolio/tutordock.png" alt="">
+            </a>
+            <div class="portfolio-caption">
+              <h4>TutorDock 2.0</h4>
+              <p class="text-muted">AngularJS, Bootstrap, CSS, HTML</p>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 portfolio-item">
             <a class="portfolio-link" data-toggle="modal" href="#portfolioModal1">
               <div class="portfolio-hover">
                 <div class="portfolio-hover-content">
@@ -172,8 +228,8 @@
               <img class="img-fluid" src="img/portfolio/zgarden.png" alt="">
             </a>
             <div class="portfolio-caption">
-              <h4>Zgarden Restaurant Website</h4>
-              <p class="text-muted">HTMl, JS, CSS, jQuery</p>
+              <h4>Restaurant Website</h4>
+              <p class="text-muted">HTMl, JavaScript, CSS, jQuery</p>
             </div>
           </div>
           <div class="col-md-4 col-sm-6 portfolio-item">
@@ -187,9 +243,10 @@
             </a>
             <div class="portfolio-caption">
               <h4>Nao Control</h4>
-              <p class="text-muted">Android, iOS, Windows Phone and Python for Back end</p>
+              <p class="text-muted">Mobile and Python(backend)</p>
             </div>
           </div>
+
           <div class="col-md-4 col-sm-6 portfolio-item">
             <a class="portfolio-link" data-toggle="modal" href="#portfolioModal4">
               <div class="portfolio-hover">
@@ -201,9 +258,10 @@
             </a>
             <div class="portfolio-caption">
               <h4>Zombie Land Game</h4>
-              <p class="text-muted">Unity, C# and JS</p>
+              <p class="text-muted">Unity, C# and JavaScript</p>
             </div>
           </div>
+
           <div class="col-md-4 col-sm-6 portfolio-item">
             <a class="portfolio-link" data-toggle="modal" href="#portfolioModal5">
               <div class="portfolio-hover">
@@ -211,25 +269,56 @@
                   <i class="fa fa-plus fa-3x"></i>
                 </div>
               </div>
-              <img class="img-fluid" src="img/portfolio/05-thumbnail.jpg" alt="">
+              <img class="img-fluid" src="img/portfolio/foodlogo.png" alt="">
             </a>
             <div class="portfolio-caption">
-              <h4>Southwest</h4>
-              <p class="text-muted">Website Design</p>
+              <h4>Food Collector</h4>
+              <p class="text-muted">JavaScript Game</p>
             </div>
           </div>
+
           <div class="col-md-4 col-sm-6 portfolio-item">
-            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal6">
+            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal7">
               <div class="portfolio-hover">
                 <div class="portfolio-hover-content">
                   <i class="fa fa-plus fa-3x"></i>
                 </div>
               </div>
-              <img class="img-fluid" src="img/portfolio/06-thumbnail.jpg" alt="">
+              <img class="img-fluid" src="img/portfolio/hangman.png" alt="">
             </a>
             <div class="portfolio-caption">
-              <h4>Window</h4>
-              <p class="text-muted">Photography</p>
+              <h4>IheartMovie</h4>
+              <p class="text-muted">jQuery, Js, HtML, AJAX, FireBase</p>
+            </div>
+          </div>
+
+          <div class="col-md-4 col-sm-6 portfolio-item">
+            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal8">
+              <div class="portfolio-hover">
+                <div class="portfolio-hover-content">
+                  <i class="fa fa-plus fa-3x"></i>
+                </div>
+              </div>
+              <img class="img-fluid" src="img/portfolio/iheart.png" alt="">
+            </a>
+            <div class="portfolio-caption">
+              <h4>Food Collector</h4>
+              <p class="text-muted">jQuery, Js, HTML, AJAX, FireBase </p>
+            </div>
+          </div>
+
+          <div class="col-md-4 col-sm-6 portfolio-item">
+            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal9">
+              <div class="portfolio-hover">
+                <div class="portfolio-hover-content">
+                  <i class="fa fa-plus fa-3x"></i>
+                </div>
+              </div>
+              <img class="img-fluid" src="img/portfolio/designlogo.png" alt="">
+            </a>
+            <div class="portfolio-caption">
+              <h4>Graphic Design</h4>
+              <p class="text-muted">Adobe </p>
             </div>
           </div>
         </div>
@@ -242,7 +331,7 @@
         <div class="row">
           <div class="col-lg-12 text-center">
             <h2 class="section-heading text-uppercase">About</h2>
-            <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+            <h3 class="section-subheading text-muted">Here what I've been doing.</h3>
           </div>
         </div>
         <div class="row">
@@ -250,65 +339,79 @@
             <ul class="timeline">
               <li>
                 <div class="timeline-image">
-                  <img class="rounded-circle img-fluid" src="img/about/1.jpg" alt="">
+                  <img class="rounded-circle img-fluid" src="img/portfolio/uci.png" alt="">
                 </div>
                 <div class="timeline-panel">
                   <div class="timeline-heading">
-                    <h4>2009-2011</h4>
-                    <h4 class="subheading">Our Humble Beginnings</h4>
+                    <h4>2013-2014</h4>
+                    <h4 class="subheading">Web Developer</h4>
                   </div>
                   <div class="timeline-body">
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                      <ul class="list-inline text-muted">
+                        <li>Worked on the website of UCI, an import export company for agricultural products.</li>
+                        <li>Converted a graphic file to a responsive design web page using HTML, CSS, jQuery.</li>
+                        <li>Develop Back-End in Php and SQL (PhpMySQL).</li>
+                      </ul>
                   </div>
                 </div>
               </li>
               <li class="timeline-inverted">
                 <div class="timeline-image">
-                  <img class="rounded-circle img-fluid" src="img/about/2.jpg" alt="">
+                  <img class="rounded-circle img-fluid" src="img/portfolio/arborbridge.png" alt="">
                 </div>
                 <div class="timeline-panel">
                   <div class="timeline-heading">
-                    <h4>March 2011</h4>
-                    <h4 class="subheading">An Agency is Born</h4>
+                    <h4>2016-2017</h4>
+                    <h4 class="subheading">Front End Developer</h4>
                   </div>
                   <div class="timeline-body">
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                    <p class="text-muted">
+                      -Worked on a test prep platform used by 250 persons (Tutors, CEO, Financial director, Operations team)
+                      .Created new pages and features using AnguarJS and Bootstrap.
+                      Define new features with the users to take in account their need the best way possible.
+                       and Fixed and optimized API calls in Back-End using python and AWS. Write unit tests.
+                      - Technologies used: <b>AngularJs, bootstrap, css, html5</b> </p>
                   </div>
                 </div>
               </li>
               <li>
                 <div class="timeline-image">
+                  <img class="rounded-circle img-fluid" src="img/portfolio/snap.png" alt="">
+                </div>
+                <div class="timeline-panel">
+                  <div class="timeline-heading">
+                    <h4>2017-2018</h4>
+                    <h4 class="subheading">Content Editor</h4>
+                  </div>
+                  <div class="timeline-body">
+                    <p class="text-muted">Producing and Editing Videos for the Discovery page of the App.
+                      Worked directly with the engineering team to test and help designing the internal app that they use for editing the stories.
+                      - Technologies used: <b>Illustrator, After Effects, Photoshop</b> </p>
+                    </p>
+                  </div>
+                </div>
+              </li>
+              <li class="timeline-inverted">
+                <div class="timeline-image">
                   <img class="rounded-circle img-fluid" src="img/about/3.jpg" alt="">
                 </div>
                 <div class="timeline-panel">
                   <div class="timeline-heading">
-                    <h4>December 2012</h4>
-                    <h4 class="subheading">Transition to Full Service</h4>
+                    <h4>2018-present</h4>
+                    <h4 class="subheading">Learning and Working on Projects</h4>
                   </div>
                   <div class="timeline-body">
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                    <p class="text-muted">Signed up for UCLA Coding Bootcamp  to learn MERN full-stack development.
+                    Also Working on a multi-platform app using ReactJs native called 'Sookie'. that will be up by the end of the year.
+                    </p>
                   </div>
                 </div>
               </li>
               <li class="timeline-inverted">
                 <div class="timeline-image">
-                  <img class="rounded-circle img-fluid" src="img/about/4.jpg" alt="">
-                </div>
-                <div class="timeline-panel">
-                  <div class="timeline-heading">
-                    <h4>July 2014</h4>
-                    <h4 class="subheading">Phase Two Expansion</h4>
-                  </div>
-                  <div class="timeline-body">
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
-                  </div>
-                </div>
-              </li>
-              <li class="timeline-inverted">
-                <div class="timeline-image">
-                  <h4>Be Part
-                    <br>Of Our
-                    <br>Story!</h4>
+                  <h4>Let me
+                    <br>Build your
+                    <br>Website</h4>
                 </div>
               </li>
             </ul>
@@ -486,13 +589,13 @@
                 <div class="modal-body">
                   <!-- Project Details Go Here -->
                   <h2 class="text-uppercase">Nao Control</h2>
-                  <p class="item-intro text-muted">This a multi-platform app developed within my school .</p>
+                  <p class="item-intro text-muted">This a multi-platform app developed within my school end of year project.</p>
                   <video controls>
                     <source src="img/portfolio/nao.mp4" type="video/mp4">
                   </video>
-                  <p> Nao Control is a multi-platform app (Android, Ios, and Windows Phone) that allows you to control the robot Nao from your tablet, you only need to connect to wifi and turn your robot on.
+                  <p> Nao Control is a multi-platform app (Android, Ios, and Windows Phone) for Front-end and Python for Back-end. The app allows you to control the robot Nao via your tablet. Only need to connect to wifi and turn your robot on.
                     <br> <p><b>With this app you can let the robot:</b></p>
-                    <ul >
+                    <ul class="list-inline">
                       <li>Stand up, sit down, walk, shake hands..</li>
                       <li>Dance</li>
                       <li>Say Text written on the tablet</li>
@@ -539,8 +642,14 @@
                   <!-- Project Details Go Here -->
                   <h2 class="text-uppercase">Zombie Land Game</h2>
                   <p class="item-intro text-muted">This a Mobile game developed with unity 2d.</p>
-                  <img class="img-fluid d-block mx-auto" src="img/portfolio/04-full.jpg" alt="">
-                  <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                  <h4>Level 1</h4>
+                  <img class="img-fluid d-block mx-auto" src="img/portfolio/zombie2.jpg" alt="">
+                  <img class="img-fluid d-block mx-auto" src="img/portfolio/zombie3.jpg" alt="">
+                  <img class="img-fluid d-block mx-auto" src="img/portfolio/zombie4.jpg" alt="">
+                  <h4>Level 3</h4>
+                  <img class="img-fluid d-block mx-auto" src="img/portfolio/zombie1.jpg" alt="">
+                  <p>Zombie Land is a 2D game for mobile users, the game play is to avoid the obstacles coming from the top of your (zombies, fires, holes..), Using Accelerometer and gyroscope in your mobile device to move your character.  </p>
+                  <p><b>PS:</b> This Project is My first Game developed within my university's <b>(ESPRIT)</b> program and designed from scratch by me with <b>Adobe Photoshop</b> and scripted mainly with <b>C#</b> and <b>JavaScript</b></p>
                   <ul class="list-inline">
                     <li>Year: 2015</li>
                     <li><a href="https://github.com/imanmahjoubi/ZombieGame-unity2d" target="_blank">Git link</a></li>
@@ -570,15 +679,15 @@
               <div class="col-lg-8 mx-auto">
                 <div class="modal-body">
                   <!-- Project Details Go Here -->
-                  <h2 class="text-uppercase">Project Name</h2>
-                  <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                  <img class="img-fluid d-block mx-auto" src="img/portfolio/05-full.jpg" alt="">
-                  <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                  <h2 class="text-uppercase">Food Collector</h2>
+                  <p class="item-intro text-muted">Fun little Game developed with JS, CSS and Html.</p>
+                  <img class="img-fluid d-block mx-auto" src="img/portfolio/food.png" alt="">
+                    <p>Food Collection is A simple JavaScript game developed with the UCLA coding bootcamp program.  </p>
                   <ul class="list-inline">
-                    <li>Date: January 2017</li>
-                    <li>Client: Southwest</li>
-                    <li>Category: Website Design</li>
-                  </ul>
+                    <li>Year: 2018</li>
+                      <li><a href="https://imanmahjoubi.github.io/unit-4-game.io/" target="_blank">Live Demo</a></li>
+                      <li><a href="https://github.com/imanmahjoubi/unit-4-game.io" target="_blank">Git Link</a></li><br>
+                    </ul>
                   <button class="btn btn-primary" data-dismiss="modal" type="button">
                     <i class="fa fa-times"></i>
                     Close Project</button>
@@ -604,14 +713,20 @@
               <div class="col-lg-8 mx-auto">
                 <div class="modal-body">
                   <!-- Project Details Go Here -->
-                  <h2 class="text-uppercase">Project Name</h2>
-                  <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                  <img class="img-fluid d-block mx-auto" src="img/portfolio/06-full.jpg" alt="">
-                  <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                  <h2 class="text-uppercase">TutorDock 2.0</h2>
+                  <p class="item-intro text-muted">Internal Management Tool.</p>
+                  <h3>Admin</h3>
+                  <img class="img-fluid d-block mx-auto" src="img/portfolio/login.png" alt="">
+                  <img class="img-fluid d-block mx-auto" src="img/portfolio/dashboard.png" alt="">
+                  <img class="img-fluid d-block mx-auto" src="img/portfolio/program.png" alt="">
+                  <h3>Tutor</h3>
+                  <img class="img-fluid d-block mx-auto" src="img/portfolio/scheduler.png" alt="">
+                  <img class="img-fluid d-block mx-auto" src="img/portfolio/tutor.png" alt="">
+                  <p>Tutordock (TD) is a web application written in Python back-end and JavaScript for the front-end using AngularJS. One of the main uses of TD is to keep tracking of all the companies’s financials. For example, some of the examples one is able to see is: how many new clients signed up, how much revenue was generated, and to see how many concurrent programs are in effect. Company staff is able to create new tutoring programs for students and all billing and lesson notes are automatically sent to the family. One of the most exciting features of Tutordock is the ability to search and let multiple tutors know that a program is available. This makes it very fast to match students with potential tutors compared to other test prep companies that have to manually reach out to each tutor. One of the newer features is a built test scoring system, which generates a report breakdown of a student’s practice tests based on their answers. One of the most used features is the lesson tracking system where tutors and administrators keep track of all student lessons. Nonetheless, the main purpose of Tutordock is to assist tutors in managing their students learning.</p>
                   <ul class="list-inline">
-                    <li>Date: January 2017</li>
-                    <li>Client: Window</li>
-                    <li>Category: Photography</li>
+                    <li>Year: 2017</li>
+                      <li><b>Live Demo and Code source are confidential</b></li>
+                      <li><a href="https://www.arborbridge.com/" target="_blank">Company Link</a></li>
                   </ul>
                   <button class="btn btn-primary" data-dismiss="modal" type="button">
                     <i class="fa fa-times"></i>
@@ -623,7 +738,107 @@
         </div>
       </div>
     </div>
-
+    <!-- Modal 7 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal7" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="close-modal" data-dismiss="modal">
+            <div class="lr">
+              <div class="rl"></div>
+            </div>
+          </div>
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-8 mx-auto">
+                <div class="modal-body">
+                  <!-- Project Details Go Here -->
+                  <h2 class="text-uppercase">Hangman Stars</h2>
+                  <p class="item-intro text-muted">Fun little Game developed with JavaScript, Css, Html and jQuery.</p>
+                  <img class="img-fluid d-block mx-auto" src="img/portfolio/hangman1.png" alt="">
+                  <p>Hangman is word guessing game, developed with JavaScript, Css, jQuery. </p>
+                  <p>The user have to press any letter of the keyboard to start guessing the correct word (celebrity name). </p>
+                  <ul class="list-inline">
+                  <li>Year: 2018</li>
+                  <li><a href="https://github.com/imanmahjoubi/hangman-game.io" target="_blank">Git Link</a></li>
+                  <li><a href="https://imanmahjoubi.github.io/hangman-game.io/" target="_blank">Live Demo</a></li><br>
+                  </ul>
+                  <button class="btn btn-primary" data-dismiss="modal" type="button">
+                    <i class="fa fa-times"></i>
+                    Close Project</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal 8 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal8" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="close-modal" data-dismiss="modal">
+            <div class="lr">
+              <div class="rl"></div>
+            </div>
+          </div>
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-8 mx-auto">
+                <div class="modal-body">
+                  <!-- Project Details Go Here -->
+                  <h2 class="text-uppercase">iHeartMovie</h2>
+                  <p class="item-intro text-muted">Movie search and review website</p>
+                  <img class="img-fluid d-block mx-auto" src="img/portfolio/movie.png" alt="">
+                  <p>This is Movie Search Website where you can find the newsest movies and news related to movies, also you can add or read reviews </p>
+                  <ul class="list-inline">
+                  <li>Year: 2018</li>
+                  <li><a href="https://github.com/imanmahjoubi/themovies-website.github.io" target="_blank">Git Link</a></li>
+                  <li><a href="https://drive.google.com/file/d/13cwjYf_boFi1h_uS3-7xMijpX7Q-qcbZ/view" target="_blank">Video Demo</a></li>
+                  <li><a href="https://imanmahjoubi.github.io/themovies-website.github.io/" target="_blank">Live Demo</a></li><br>
+                  </ul>
+                  <button class="btn btn-primary" data-dismiss="modal" type="button">
+                    <i class="fa fa-times"></i>
+                    Close Project</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal 9 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal9" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="close-modal" data-dismiss="modal">
+            <div class="lr">
+              <div class="rl"></div>
+            </div>
+          </div>
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-8 mx-auto">
+                <div class="modal-body">
+                  <!-- Project Details Go Here -->
+                  <h2 class="text-uppercase">Graphic Designing</h2>
+                  <p class="item-intro text-muted">Website designed from scratch(.PSD)</p>
+                  <img class="img-fluid d-block mx-auto" src="img/portfolio/design.png" alt="">
+                  <p>Used Photoshop to design this website page </p>
+                  <p>Transformed to Html page using HTML/CSS</p>
+                  <b><a target="_blank" href="https://github.com/imanmahjoubi/psdConversionToHTML">Code Source</a></b>
+                  <ul class="list-inline">
+                  <li>Year: 2018</li>
+                  </ul>
+                  <button class="btn btn-primary" data-dismiss="modal" type="button">
+                    <i class="fa fa-times"></i>
+                    Close Project</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
